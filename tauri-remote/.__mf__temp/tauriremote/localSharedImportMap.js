@@ -4,12 +4,12 @@
     const importMap = {
       
         "react": async () => {
-          let pkg = await import("__mf__virtual/tauri_mf_2_host__prebuild__react__prebuild__.js")
+          let pkg = await import("__mf__virtual/tauriremote__prebuild__react__prebuild__.js")
           return pkg
         }
       ,
         "react-dom": async () => {
-          let pkg = await import("__mf__virtual/tauri_mf_2_host__prebuild__react_mf_2_dom__prebuild__.js")
+          let pkg = await import("__mf__virtual/tauriremote__prebuild__react_mf_2_dom__prebuild__.js")
           return pkg
         }
       
@@ -21,7 +21,7 @@
             version: "18.3.1",
             scope: ["default"],
             loaded: false,
-            from: "tauri-host",
+            from: "tauriremote",
             async get () {
               usedShared["react"].loaded = true
               const {"react": pkgDynamicImport} = importMap 
@@ -47,7 +47,7 @@
             version: "18.3.1",
             scope: ["default"],
             loaded: false,
-            from: "tauri-host",
+            from: "tauriremote",
             async get () {
               usedShared["react-dom"].loaded = true
               const {"react-dom": pkgDynamicImport} = importMap 

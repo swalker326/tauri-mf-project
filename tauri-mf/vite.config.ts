@@ -1,18 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { withZephyr } from "vite-plugin-zephyr";
+import { federation } from "@module-federation/vite";
 import { mfConfig } from "./module-federation.config";
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [
-    react(),
-    withZephyr({
-      mfConfig
-    })
-  ],
+  plugins: [react(), federation(mfConfig)],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
@@ -34,5 +29,8 @@ export default defineConfig(async () => ({
       // 3. tell vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"]
     }
+  },
+  build: {
+    target: "chrome89"
   }
 }));
