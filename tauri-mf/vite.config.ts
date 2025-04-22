@@ -2,12 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { federation } from "@module-federation/vite";
 import { mfConfig } from "./module-federation.config";
+import { withZephyr } from "vite-plugin-zephyr";
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react(), federation(mfConfig)],
+  plugins: [react(), withZephyr({ mfConfig })],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

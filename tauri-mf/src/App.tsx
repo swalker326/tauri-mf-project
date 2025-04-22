@@ -8,7 +8,7 @@ const Remote = React.lazy(() => import("tauriremote/App"));
 function App() {
   return (
     <main className="container">
-      <h1>Remote...</h1>
+      <h1>Updates?...</h1>
       <Suspense fallback={<div>Loading remote app...</div>}>
         <Remote />
       </Suspense>
